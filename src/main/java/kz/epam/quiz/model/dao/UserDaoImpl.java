@@ -45,7 +45,7 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public User getById(int id) {
-        return getCurrentSession().get(User.class, id);
+        return (User) getCurrentSession().get(User.class, id);
     }
 
     @Override

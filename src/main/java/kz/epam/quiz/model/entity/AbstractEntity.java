@@ -1,13 +1,15 @@
 package kz.epam.quiz.model.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
 
     @Id
-    @Column(name = "[id]")
-    @GeneratedValue
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     protected int id;
 
     public int getId() {
@@ -18,10 +20,4 @@ public abstract class AbstractEntity {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "AbstractEntity{" +
-                "id=" + id +
-                '}';
-    }
 }

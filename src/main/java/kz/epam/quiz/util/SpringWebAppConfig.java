@@ -32,7 +32,7 @@ public class SpringWebAppConfig {
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
     private static final String PROPERTY_NAME_HIBERNATE_FORMAT_SQL = "hibernate.format_sql";
 
-    @Resource
+    @Autowired
     private Environment environment;
 
     @Bean
