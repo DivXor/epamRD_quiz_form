@@ -2,6 +2,7 @@ package kz.epam.quiz.util;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.ViewResolver;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -10,6 +11,7 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 
 
 @Configuration
+@PropertySource("classpath:thymeleaf.properties")
 public class ThymeleafConfig {
     @Bean
     public TemplateResolver templateResolver(){
