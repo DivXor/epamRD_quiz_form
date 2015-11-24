@@ -1,10 +1,10 @@
-package kz.epam.quiz.model;
+package kz.epam.quiz.model.entity;
 
 import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class CommonEntity {
-    
+
     @Column(name = "id")
     private @Id @GeneratedValue int id;
 

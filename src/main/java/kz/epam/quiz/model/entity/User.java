@@ -1,4 +1,4 @@
-package kz.epam.quiz.model;
+package kz.epam.quiz.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
