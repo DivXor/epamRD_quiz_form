@@ -1,4 +1,4 @@
-package kz.epam.quiz.form;
+package kz.epam.quiz.controller.form;
 
 /**
  * Created by admin on 11/24/2015.

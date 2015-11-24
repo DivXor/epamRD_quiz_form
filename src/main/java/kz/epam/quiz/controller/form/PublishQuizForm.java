@@ -1,8 +1,10 @@
-package kz.epam.quiz.form;
+package kz.epam.quiz.controller.form;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Created by admin on 11/24/2015.
@@ -14,6 +16,9 @@ public class PublishQuizForm {
     @NotEmpty(message = "Content cannot be empty")
     @Size(max=1000)
     private String content;
+
+    @NotNull(message = "Answers cannot be null")
+    private List<PublishAnswerForm> answerForms;
 
     public String getTitle() {
         return title;
@@ -31,4 +36,11 @@ public class PublishQuizForm {
         this.content = content;
     }
 
+    public List<PublishAnswerForm> getAnswerForms() {
+        return answerForms;
+    }
+
+    public void setAnswerForms(List<PublishAnswerForm> answerForms) {
+        this.answerForms = answerForms;
+    }
 }
