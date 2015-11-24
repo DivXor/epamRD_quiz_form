@@ -1,13 +1,12 @@
 package kz.epam.quiz.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
-public class User extends CommonEntity {
-    @Column(name = "email")
+@Table(name = "[app_users]", schema = "DIVON")
+public class User extends AbstractEntity {
+
+    @Column(name = "[email]")
     private String email;
 
     public String getEmail() {
@@ -16,5 +15,13 @@ public class User extends CommonEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                "} " + super.toString();
     }
 }

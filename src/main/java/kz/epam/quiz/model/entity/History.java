@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "history")
-public class History extends CommonEntity {
+public class History extends AbstractEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

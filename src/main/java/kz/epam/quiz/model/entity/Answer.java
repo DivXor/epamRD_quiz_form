@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "answers")
-public class Answer extends CommonEntity {
+public class Answer extends AbstractEntity {
 
     @Column(name = "title")
     private String title;

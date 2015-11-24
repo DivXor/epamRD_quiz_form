@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "quizzes")
-public class Quiz extends CommonEntity {
+public class Quiz extends AbstractEntity {
     @Column(name = "title")
     private String title;
 
