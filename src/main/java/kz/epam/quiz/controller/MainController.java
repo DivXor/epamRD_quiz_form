@@ -9,10 +9,9 @@ import java.util.Map;
 
 @Controller
 public class MainController {
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String viewMain(Map<Object, String> model) {
+    public String viewPageMain(Map<Object, String> model) {
+        System.out.println("heello");
         return "index";
     }
-
 }
