@@ -1,35 +1,34 @@
 CREATE TABLE DIVON."users"
 (
   "id"    INT PRIMARY KEY,
-  "email" VARCHAR2(100) NOT NULL,
-  "role"  VARCHAR2(50) CHECK("role" IN ('user', 'admin')) NOT NULL
+  "email" VARCHAR2(100) NOT NULL
 );
 
 CREATE TABLE DIVON."quizes"
 (
-  "id"          INT PRIMARY KEY,
-  "title"       VARCHAR2(200) NOT NULL,
-  "content"     BLOB,
-  "date_create" DATE,
-  "date_expire" DATE       NOT NULL,
-  "status"      INT        NOT NULL,
-  "user_id"     INT        NOT NULL
+  "id"              INT PRIMARY KEY,
+  "title"           VARCHAR2(200)                  NOT NULL,
+  "content"         VARCHAR2(1000),
+  "creation_time"   TIMESTAMP                      NOT NULL,
+  "expiration_time" TIMESTAMP                      NOT NULL,
+  "status"          INT CHECK ("status" IN (0, 1)) NOT NULL,
+  "user_id"         INT                            NOT NULL
 );
 
 CREATE TABLE DIVON."answers"
 (
   "id"      INT PRIMARY KEY,
   "title"   VARCHAR2(200) NOT NULL,
-  "type"    VARCHAR2(20) CHECK("type" IN ('one', 'many')),
+  "type"    VARCHAR2(20) CHECK ("type" IN ('one', 'many', 'text')),
   "quiz_id" INT
 );
 
 CREATE TABLE DIVON."history"
 (
-  "id"        INT PRIMARY KEY,
-  "answer_id" INT NOT NULL,
-  "user_id"   INT NOT NULL,
-  "date"      DATE
+  "id"          INT PRIMARY KEY,
+  "answer_id"   INT       NOT NULL,
+  "user_id"     INT       NOT NULL,
+  "answer_time" TIMESTAMP NOT NULL
 );
 
 
