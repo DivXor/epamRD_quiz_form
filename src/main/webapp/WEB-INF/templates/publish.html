@@ -2,23 +2,84 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title></title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-theme.min.css}"/>
+    <title th:text="${title}"></title>
+    <script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/myScripts.js}"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css"
+          th:href="@{/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="container">
+    <div class="container form-container-main">
         <div class="row">
-            <form action="/" method="post">
-                <div class="form-group">
-                    <input type="text" th:value="${publishForm.title}" class="form-control"/>
-                </div>
+            <div class="col-xs-12 col-md-6">
+                <form action="/" method="post" th:object="${publishQuizForm}">
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default">Send</button>
-                </div>
-            </form>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                        <p th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input id="title" type="text" class="form-control" th:field="${publishQuizForm.title}"
+                               th:errorclass="fieldError"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <textarea class="form-control" id="content" rows="10" th:field="${publishQuizForm.content}"
+                                  th:errorclass="fieldError"></textarea>
+                    </div>
+                    <hr/>
+                    <p class="title">Answers:</p>
+
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <button id="add_answer" type="button" class="btn btn-info">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add answer
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="table-con">
+                        <table id="table_answers" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Order</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" placeholder="Title" class="form-control"/></td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option value="one">Radio</option>
+                                            <option value="many">Checkbox</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control" value="0"/></td>
+                                    <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> remove</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
