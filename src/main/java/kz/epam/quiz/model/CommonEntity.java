@@ -4,11 +4,9 @@ import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class CommonEntity {
-
-    @Id
+    
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private @Id @GeneratedValue int id;
 
     public int getId() {
         return id;
