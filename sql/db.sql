@@ -4,7 +4,7 @@ CREATE TABLE DIVON."users"
   "email" VARCHAR2(100) NOT NULL
 );
 
-CREATE TABLE DIVON."quizes"
+CREATE TABLE DIVON."quizzes"
 (
   "id"              INT PRIMARY KEY,
   "title"           VARCHAR2(200)                  NOT NULL,
@@ -32,8 +32,8 @@ CREATE TABLE DIVON."history"
 );
 
 
-ALTER TABLE "quizes" ADD CONSTRAINT "Quizes_fk0" FOREIGN KEY ("user_id") REFERENCES DIVON."users" ("id");
-ALTER TABLE "answers" ADD CONSTRAINT "Answers_fk0" FOREIGN KEY ("quiz_id") REFERENCES DIVON."quizes" ("id");
+ALTER TABLE "quizzes" ADD CONSTRAINT "Quizes_fk0" FOREIGN KEY ("user_id") REFERENCES DIVON."users" ("id");
+ALTER TABLE "answers" ADD CONSTRAINT "Answers_fk0" FOREIGN KEY ("quiz_id") REFERENCES DIVON."quizzes" ("id");
 ALTER TABLE "history" ADD CONSTRAINT "history_fk0" FOREIGN KEY ("answer_id") REFERENCES DIVON."answers" ("id");
 ALTER TABLE "history" ADD CONSTRAINT "history_fk1" FOREIGN KEY ("user_id") REFERENCES DIVON."users" ("id");
 
