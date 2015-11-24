@@ -11,7 +11,7 @@ import java.util.Map;
 public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String viewPageMain(Map<Object, String> model) {
-        System.out.println("heello");
+        model.put("name", "hello");
         return "index";
     }
 }
