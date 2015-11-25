@@ -1,6 +1,5 @@
 package kz.epam.quiz.model.dao.test;
 
-import kz.epam.quiz.model.entity.User;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -40,7 +39,7 @@ public abstract class AbstractDao<PK extends Serializable, T> {
     }
 
     public void persist(T entity) {
-        getSession().save(entity);
+        getSession().persist(entity);
     }
 
     public void delete(T entity) {
