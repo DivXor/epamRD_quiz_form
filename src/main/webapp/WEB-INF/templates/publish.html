@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${title}"></title>
+    <title th:text="${title}">Quiz</title>
     <script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/myScripts.js}"></script>
@@ -34,6 +34,15 @@
                         <textarea class="form-control" id="content" rows="10" th:field="${publishQuizForm.content}"
                                   th:errorclass="fieldError"></textarea>
                     </div>
+
+                    <div class="fomr-group">
+                        <label for="anonymous">Anonymous:</label>
+                        <select id="anonymous" th:field="${publishQuizForm.anonymous}" class="form-control">
+                            <option value="1">No</option>
+                            <option value="0">Yes</option>
+                        </select>
+                    </div>
+
                     <hr/>
                     <p class="title">Answers:</p>
 
@@ -43,7 +52,6 @@
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add answer
                             </button>
                         </div>
-
                     </div>
 
                     <div class="table-con">
@@ -59,7 +67,7 @@
                             <tbody>
                             <tr class="hidden_row" res-id="-1">
                                 <td><input type="text" name="answerForms[res-id].title" placeholder="Title"
-                                           class="form-control"/></td>
+                                           class="form-control" required="required"/></td>
                                 <td>
                                     <select name="answerForms[res-id].type" class="form-control">
                                         <option value="one">Radio</option>
@@ -77,7 +85,8 @@
                             <tr th:each="answer, status : ${publishQuizForm.answerForms}"
                                 th:attr="res-id=${status.index}">
                                 <td><input type="text" th:name="'answerForms['+${status.index}+'].title'"
-                                           th:value="${answer.title}" class="form-control"/></td>
+                                           th:value="${answer.title}" class="form-control" required="required"
+                                           th:errorclass="fieldError"/></td>
                                 <td>
                                     <select th:name="'answerForms['+${status.index}+'].type'" class="form-control">
                                         <option value="one" th:selected="${answer.type} eq 'one'">Radio</option>
@@ -111,6 +120,8 @@
         </div>
     </div>
 </div>
+
+<div th:replace="fragments/footer"></div>
 
 </body>
 </html>

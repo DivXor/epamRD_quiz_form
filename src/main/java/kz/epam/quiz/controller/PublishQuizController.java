@@ -14,11 +14,11 @@ import java.util.*;
 
 
 @Controller
-public class MainController {
+public class PublishQuizController {
 
     private Validator validator;
 
-    public MainController() {
+    public PublishQuizController() {
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
         validator = validatorFactory.getValidator();
     }
@@ -33,27 +33,31 @@ public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String doActionMain(@Valid @ModelAttribute("publishQuizForm") PublishQuizForm publishForm, BindingResult result,
-                               Map<String, Object> model){
+                               Map<String, Object> model) {
         validateAnswers(publishForm.getAnswerForms(), result);
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             return "publish";
         }
         return "publish";
     }
 
     private BindingResult validateAnswers(List<PublishAnswerForm> answerForms, BindingResult result) {
-        if(answerForms.isEmpty())
-            result.addError(new FieldError("Answer", "", "Answer cannot be empty"));
+
+        if (answerForms.isEmpty())
+            result.addError(new FieldError("Answer", "", "Answers cannot be empty"));
 
         Iterator iterator = answerForms.iterator();
+
+        int index = 0;
         while (iterator.hasNext()) {
-            PublishAnswerForm publishAnswer = (PublishAnswerForm)iterator.next();
+            PublishAnswerForm publishAnswer = (PublishAnswerForm) iterator.next();
             Set<ConstraintViolation<PublishAnswerForm>> validationList = validator.validate(publishAnswer);
             for (ConstraintViolation<PublishAnswerForm> violation : validationList) {
                 String path = violation.getPropertyPath().toString();
                 String message = violation.getMessage();
-                result.addError(new FieldError("Answer", "Invalid " + path, "Invalid answer " + message));
+                result.addError(new FieldError("Answer", "answerForms[" + index + "]" + "." + path, "Answer: " + message));
             }
+            index++;
         }
         return result;
     }

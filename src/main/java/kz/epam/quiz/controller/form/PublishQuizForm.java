@@ -16,7 +16,8 @@ public class PublishQuizForm {
     private String title;
     @Size(max=1000, message = "Max size of content is 1000 length")
     private String content;
-
+    @NotNull
+    private Integer anonymous;
     @NotNull(message = "Answers cannot be null")
     private List<PublishAnswerForm> answerForms = new ArrayList<>();
 
@@ -34,6 +35,14 @@ public class PublishQuizForm {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Integer getAnonymous() {
+        return anonymous;
+    }
+
+    public void setAnonymous(Integer anonymous) {
+        this.anonymous = anonymous;
     }
 
     public List<PublishAnswerForm> getAnswerForms() {
