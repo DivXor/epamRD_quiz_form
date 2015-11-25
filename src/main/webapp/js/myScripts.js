@@ -13,11 +13,22 @@ $(document).ready(function () {
 
 
     /**
+     * Removing the answer from quiz
+     */
+    $('#table_answers').on('click', '.remove-row-button', function(){
+        $(this).parent('td').parent('tr').fadeOut(300, function(){
+           $(this).remove();
+        });
+    });
+
+
+    /**
      * On saving the quiz form
      */
     $("#save_quiz_form").click(function(){
         $('#table_answers .hidden_row').empty();
         return true;
     });
+
 
 });

@@ -4,42 +4,29 @@ import kz.epam.quiz.controller.form.PublishAnswerForm;
 import kz.epam.quiz.controller.form.PublishQuizForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import javax.validation.*;
+import java.util.*;
 
 
 @Controller
 public class MainController {
 
+    private Validator validator;
+
+    public MainController() {
+        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+        validator = validatorFactory.getValidator();
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String viewPageMain(Map<String, Object> model) {
         model.put("title", "Publish new quiz");
         PublishQuizForm publishQuizForm = new PublishQuizForm();
-
-        List<PublishAnswerForm> answerForms = new ArrayList<>();
-
-        PublishAnswerForm publishAnswerForm = new PublishAnswerForm();
-        publishAnswerForm.setTitle("test");
-        publishAnswerForm.setType("many");
-        publishAnswerForm.setOrder(1);
-
-        answerForms.add(publishAnswerForm);
-
-        publishAnswerForm = new PublishAnswerForm();
-        publishAnswerForm.setTitle("asdfasdf");
-        publishAnswerForm.setType("one");
-        publishAnswerForm.setOrder(2);
-        answerForms.add(publishAnswerForm);
-
-
-        publishQuizForm.setAnswerForms(answerForms);
         model.put("publishQuizForm", publishQuizForm);
         return "publish";
     }
@@ -47,22 +34,28 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String doActionMain(@Valid @ModelAttribute("publishQuizForm") PublishQuizForm publishForm, BindingResult result,
                                Map<String, Object> model){
-
-        Iterator iterator = publishForm.getAnswerForms().iterator();
-
-        while (iterator.hasNext()) {
-            PublishAnswerForm publishAnswer = (PublishAnswerForm)iterator.next();
-
-        }
-
-
+        validateAnswers(publishForm.getAnswerForms(), result);
         if(result.hasErrors()) {
-            System.out.println(publishForm.getAnswerForms().get(0).getTitle());
             return "publish";
         }
+        return "publish";
+    }
 
+    private BindingResult validateAnswers(List<PublishAnswerForm> answerForms, BindingResult result) {
+        if(answerForms.isEmpty())
+            result.addError(new FieldError("Answer", "", "Answer cannot be empty"));
 
-        return "index";
+        Iterator iterator = answerForms.iterator();
+        while (iterator.hasNext()) {
+            PublishAnswerForm publishAnswer = (PublishAnswerForm)iterator.next();
+            Set<ConstraintViolation<PublishAnswerForm>> validationList = validator.validate(publishAnswer);
+            for (ConstraintViolation<PublishAnswerForm> violation : validationList) {
+                String path = violation.getPropertyPath().toString();
+                String message = violation.getMessage();
+                result.addError(new FieldError("Answer", "Invalid " + path, "Invalid answer " + message));
+            }
+        }
+        return result;
     }
 
 

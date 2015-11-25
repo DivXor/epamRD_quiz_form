@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input id="title" type="text" class="form-control" th:field="${publishQuizForm.title}"
-                               th:errorclass="fieldError"/>
+                               th:errorclass="fieldError" required="required"/>
                     </div>
 
                     <div class="form-group">
@@ -57,7 +57,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="hidden_row" res-id="0">
+                            <tr class="hidden_row" res-id="-1">
                                 <td><input type="text" name="answerForms[res-id].title" placeholder="Title"
                                            class="form-control"/></td>
                                 <td>
@@ -69,7 +69,7 @@
                                 <td><input type="number" name="answerForms[res-id].order" class="form-control"
                                            value="0"/></td>
                                 <td>
-                                    <button type="button" class="btn btn-danger"><span
+                                    <button type="button" class="btn btn-danger remove-row-button"><span
                                             class="glyphicon glyphicon-remove" aria-hidden="true"></span> remove
                                     </button>
                                 </td>
@@ -90,7 +90,7 @@
                                            th:value="${answer.order}"/>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-danger"><span
+                                    <button type="button" class="btn btn-danger remove-row-button"><span
                                             class="glyphicon glyphicon-remove" aria-hidden="true"></span> remove
                                     </button>
                                 </td>
@@ -105,6 +105,7 @@
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save
                         </button>
                     </div>
+
                 </form>
             </div>
         </div>

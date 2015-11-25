@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,12 +14,11 @@ public class PublishQuizForm {
     @NotEmpty(message = "Title cannot be empty")
     @Size(max = 200)
     private String title;
-    @NotEmpty(message = "Content cannot be empty")
-    @Size(max=1000)
+    @Size(max=1000, message = "Max size of content is 1000 length")
     private String content;
 
     @NotNull(message = "Answers cannot be null")
-    private List<PublishAnswerForm> answerForms;
+    private List<PublishAnswerForm> answerForms = new ArrayList<>();
 
     public String getTitle() {
         return title;
