@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,13 @@ public class MainController {
 
         answerForms.add(publishAnswerForm);
 
+        publishAnswerForm = new PublishAnswerForm();
+        publishAnswerForm.setTitle("asdfasdf");
+        publishAnswerForm.setType("one");
+        publishAnswerForm.setOrder(2);
+        answerForms.add(publishAnswerForm);
+
+
         publishQuizForm.setAnswerForms(answerForms);
         model.put("publishQuizForm", publishQuizForm);
         return "publish";
@@ -39,9 +47,21 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String doActionMain(@Valid @ModelAttribute("publishQuizForm") PublishQuizForm publishForm, BindingResult result,
                                Map<String, Object> model){
+
+        Iterator iterator = publishForm.getAnswerForms().iterator();
+
+        while (iterator.hasNext()) {
+            PublishAnswerForm publishAnswer = (PublishAnswerForm)iterator.next();
+
+        }
+
+
         if(result.hasErrors()) {
+            System.out.println(publishForm.getAnswerForms().get(0).getTitle());
             return "publish";
         }
+
+
         return "index";
     }
 

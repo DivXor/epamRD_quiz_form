@@ -49,37 +49,59 @@
                     <div class="table-con">
                         <table id="table_answers" class="table table-hover">
                             <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Type</th>
-                                    <th>Order</th>
-                                    <th></th>
-                                </tr>
+                            <tr>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Order</th>
+                                <th></th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="answer : ${publishQuizForm.answerForms}">
-
-                                </tr>
-                                <!--
-                                <tr>
-                                    <td><input type="text" placeholder="Title" class="form-control"/></td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option value="one">Radio</option>
-                                            <option value="many">Checkbox</option>
-                                        </select>
-                                    </td>
-                                    <td><input type="number" class="form-control" value="0"/></td>
-                                    <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> remove</button></td>
-                                </tr> -->
-
+                            <tr class="hidden_row" res-id="0">
+                                <td><input type="text" name="answerForms[res-id].title" placeholder="Title"
+                                           class="form-control"/></td>
+                                <td>
+                                    <select name="answerForms[res-id].type" class="form-control">
+                                        <option value="one">Radio</option>
+                                        <option value="many">Checkbox</option>
+                                    </select>
+                                </td>
+                                <td><input type="number" name="answerForms[res-id].order" class="form-control"
+                                           value="0"/></td>
+                                <td>
+                                    <button type="button" class="btn btn-danger"><span
+                                            class="glyphicon glyphicon-remove" aria-hidden="true"></span> remove
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr th:each="answer, status : ${publishQuizForm.answerForms}"
+                                th:attr="res-id=${status.index}">
+                                <td><input type="text" th:name="'answerForms['+${status.index}+'].title'"
+                                           th:value="${answer.title}" class="form-control"/></td>
+                                <td>
+                                    <select th:name="'answerForms['+${status.index}+'].type'" class="form-control">
+                                        <option value="one" th:selected="${answer.type} eq 'one'">Radio</option>
+                                        <option value="many" th:selected="${answer.type} eq 'many'">Checkbox</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control"
+                                           th:name="'answerForms['+${status.index}+'].order'"
+                                           th:value="${answer.order}"/>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger"><span
+                                            class="glyphicon glyphicon-remove" aria-hidden="true"></span> remove
+                                    </button>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
 
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-info">
+                        <button type="submit" id="save_quiz_form" class="btn btn-lg btn-success">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save
                         </button>
                     </div>

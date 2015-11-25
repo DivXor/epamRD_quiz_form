@@ -1,18 +1,23 @@
-$(document).ready(function(){
-   $('#add_answer').click(function(){
-      // var title = $('#answer_title').val();
-       //var type = $('#answer_type').val();
+$(document).ready(function () {
 
-       var select = '<select class="form-control"><option value="one">Radio</option><option value="many">Checkbox</option></select>';
-       var order = '<input type="number" class="form-control" value="0"/>';
-       var button = '<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> remove</button>';
+    /**
+     * Adding new answer
+     */
+    $('#add_answer').click(function () {
+        var id = parseInt($('#table_answers tr').last().attr('res-id')) + 1;
+        var newRow = $('#table_answers .hidden_row').clone();
+        newRow.html(newRow.html().replace(/res-id/g, id));
+        $('#table_answers tbody').append(newRow);
+        newRow.fadeOut(0).removeClass('hidden_row').attr('res-id', id).fadeIn(500);
+    });
 
-       $('#table_answers tbody').append("<tr>" +
-           '<td><input type="text" placeholder="Title" class="form-control"/></td>' +
-           '<td>'+ select +'</td>' +
-           '<td>'+ order +'</td>' +
-           '<td>' + button + '</td>' +
-           '</tr>');
 
-   });
+    /**
+     * On saving the answer
+     */
+    $("#save_quiz_form").click(function(){
+        $('#table_answers .hidden_row').empty();
+        return true;
+    });
+
 });

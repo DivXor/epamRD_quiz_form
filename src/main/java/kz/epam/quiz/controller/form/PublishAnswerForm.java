@@ -7,12 +7,12 @@ import javax.validation.constraints.Size;
 
 
 public class PublishAnswerForm {
-    //@NotEmpty(message = "Title cannot be empty")
- //   @Size(max = 200)
+    @NotEmpty(message = "Title cannot be empty")
+    @Size(max = 200)
     private String title;
-  //  @NotEmpty(message = "Type cannot be empty")
+    @NotEmpty(message = "Type cannot be empty")
     private String type;
- //   @NotNull(message = "Order cannot be null")
+    @NotNull(message = "Order cannot be null")
     private Integer order;
 
     public String getTitle() {
