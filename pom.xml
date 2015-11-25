@@ -80,6 +80,13 @@
             <version>5.0.4.Final</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.4.Final</version>
+        </dependency>
+
+
         <!--Junit-->
         <dependency>
             <groupId>junit</groupId>
