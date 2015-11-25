@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 
     /**
-     * On saving the answer
+     * On saving the quiz form
      */
     $("#save_quiz_form").click(function(){
         $('#table_answers .hidden_row').empty();
