@@ -1,10 +1,10 @@
-CREATE TABLE DIVON.users
+CREATE TABLE users
 (
   id    INT PRIMARY KEY,
   email VARCHAR2(100) NOT NULL
 );
 
-CREATE TABLE DIVON.quizzes
+CREATE TABLE quizzes
 (
   id              INT PRIMARY KEY,
   title           VARCHAR2(200)                                          NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE DIVON.quizzes
   user_id         INT                                                    NOT NULL
 );
 
-CREATE TABLE DIVON.answers
+CREATE TABLE answers
 (
   id           INT PRIMARY KEY,
   title        VARCHAR2(200)                                        NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE DIVON.answers
   quiz_id      INT                                                 NOT NULL
 );
 
-CREATE TABLE DIVON.history
+CREATE TABLE history
 (
   id          INT PRIMARY KEY,
   answer_id   INT                                  NOT NULL,
@@ -33,9 +33,9 @@ CREATE TABLE DIVON.history
   answer_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP  NOT NULL
 );
 
-ALTER TABLE quizzes ADD CONSTRAINT Quizzes_fk0 FOREIGN KEY (user_id) REFERENCES DIVON.users (id);
-ALTER TABLE answers ADD CONSTRAINT Answers_fk0 FOREIGN KEY (quiz_id) REFERENCES DIVON.quizzes (id) ON DELETE CASCADE;
-ALTER TABLE history ADD CONSTRAINT history_fk0 FOREIGN KEY (answer_id) REFERENCES DIVON.answers (id);
-ALTER TABLE history ADD CONSTRAINT history_fk1 FOREIGN KEY (user_id) REFERENCES DIVON.users (id);
+ALTER TABLE quizzes ADD CONSTRAINT Quizzes_fk0 FOREIGN KEY (user_id) REFERENCES users (id);
+ALTER TABLE answers ADD CONSTRAINT Answers_fk0 FOREIGN KEY (quiz_id) REFERENCES quizzes (id) ON DELETE CASCADE;
+ALTER TABLE history ADD CONSTRAINT history_fk0 FOREIGN KEY (answer_id) REFERENCES answers (id);
+ALTER TABLE history ADD CONSTRAINT history_fk1 FOREIGN KEY (user_id) REFERENCES users (id);
 
 COMMIT;
