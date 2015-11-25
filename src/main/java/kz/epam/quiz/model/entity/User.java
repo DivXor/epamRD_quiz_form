@@ -3,7 +3,7 @@ package kz.epam.quiz.model.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USERS", schema = "DIVON")
+@Table(name = "USERS")
 public class User extends AbstractEntity {
 
     @Column(name = "email")
