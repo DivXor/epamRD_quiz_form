@@ -1,5 +1,6 @@
-package kz.epam.quiz.model.dao;
+package kz.epam.quiz.model.dao.impl;
 
+import kz.epam.quiz.model.dao.UserDao;
 import kz.epam.quiz.model.entity.User;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -45,7 +46,7 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public User getById(int id) {
-        return (User) getCurrentSession().get(User.class, id);
+        return getCurrentSession().get(User.class, id);
     }
 
     @Override
