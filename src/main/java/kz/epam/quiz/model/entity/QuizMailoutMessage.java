@@ -2,6 +2,8 @@ package kz.epam.quiz.model.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user_messages")
@@ -16,10 +18,12 @@ public class QuizMailoutMessage extends AbstractEntity {
     private Date sentTime;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User author;
     @ManyToOne
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
+
+    private Set<User> answeredUsers;
 
     public String getTitle() {
         return title;
@@ -45,12 +49,20 @@ public class QuizMailoutMessage extends AbstractEntity {
         this.sentTime = sentTime;
     }
 
-    public User getUser() {
-        return user;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Set<User> getAnsweredUsers() {
+        return answeredUsers;
+    }
+
+    public void setAnsweredUsers(Set<User> answeredUsers) {
+        this.answeredUsers = answeredUsers;
     }
 
     public Quiz getQuiz() {
@@ -71,8 +83,9 @@ public class QuizMailoutMessage extends AbstractEntity {
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (content != null ? !content.equals(that.content) : that.content != null) return false;
         if (sentTime != null ? !sentTime.equals(that.sentTime) : that.sentTime != null) return false;
-        if (user != null ? !user.equals(that.user) : that.user != null) return false;
-        return !(quiz != null ? !quiz.equals(that.quiz) : that.quiz != null);
+        if (author != null ? !author.equals(that.author) : that.author != null) return false;
+        if (quiz != null ? !quiz.equals(that.quiz) : that.quiz != null) return false;
+        return !(answeredUsers != null ? !answeredUsers.equals(that.answeredUsers) : that.answeredUsers != null);
 
     }
 
@@ -81,8 +94,9 @@ public class QuizMailoutMessage extends AbstractEntity {
         int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (sentTime != null ? sentTime.hashCode() : 0);
-        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + (quiz != null ? quiz.hashCode() : 0);
+        result = 31 * result + (answeredUsers != null ? answeredUsers.hashCode() : 0);
         return result;
     }
 }
