@@ -2,8 +2,169 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title></title>
+    <title>${title}</title>
+    <script type="text/javascript" th:src="@{/js/jquery-1.11.3.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/myScripts.js}"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css"
+          th:href="@{/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
+<div th:replace="fragments/header"></div>
+
+<div class="main-quiz-list container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="block">
+                    <a href="#">
+                        <div class="inside">
+                            <p class="date">20.11.2015</p>
+
+                            <h2 class="title">Что лучше, Java или ASP.NET?</h2>
+
+                            <div class="text">Holly war Holly war Holly war Holly war Holly war Holly war Holly war
+                                Holly war
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <p class="expire">Expire: 10.11.2015</p>
+                            <p class="voted">Voted: 16</p>
+                            <div class="clears"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block">
+                    <a href="#">
+                        <div class="inside">
+                            <p class="date">20.11.2015</p>
+
+                            <h2 class="title">Что лучше, Java или ASP.NET?</h2>
+
+                            <div class="text">Holly war Holly war Holly war Holly war Holly war Holly war Holly war
+                                Holly war
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <p class="expire">Expire: 10.11.2015</p>
+                            <p class="voted">Voted: 16</p>
+                            <div class="clears"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block">
+                    <a href="#">
+                        <div class="inside">
+                            <p class="date">20.11.2015</p>
+
+                            <h2 class="title">Что лучше, Java или ASP.NET?</h2>
+
+                            <div class="text">Holly war Holly war Holly war Holly war Holly war Holly war Holly war
+                                Holly war
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <p class="expire">Expire: 10.11.2015</p>
+                            <p class="voted">Voted: 16</p>
+                            <div class="clears"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block">
+                    <a href="#">
+                        <div class="inside">
+                            <p class="date">20.11.2015</p>
+
+                            <h2 class="title">Что лучше, Java или ASP.NET?</h2>
+
+                            <div class="text">Holly war Holly war Holly war Holly war Holly war Holly war Holly war
+                                Holly war
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <p class="expire">Expire: 10.11.2015</p>
+                            <p class="voted">Voted: 16</p>
+                            <div class="clears"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block">
+                    <a href="#">
+                        <div class="inside">
+                            <p class="date">20.11.2015</p>
+
+                            <h2 class="title">Что лучше, Java или ASP.NET?</h2>
+
+                            <div class="text">Holly war Holly war Holly war Holly war Holly war Holly war Holly war
+                                Holly war
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <p class="expire">Expire: 10.11.2015</p>
+                            <p class="voted">Voted: 16</p>
+                            <div class="clears"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="block">
+                    <a href="#">
+                        <div class="inside">
+                            <p class="date">20.11.2015</p>
+
+                            <h2 class="title">Что лучше, Java или ASP.NET?</h2>
+
+                            <div class="text">Holly war Holly war Holly war Holly war Holly war Holly war Holly war
+                                Holly war
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <p class="expire">Expire: 10.11.2015</p>
+                            <p class="voted">Voted: 16</p>
+                            <div class="clears"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="pagination-container">
+                    <nav>
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer"></div>
 </body>
 </html>

@@ -1,102 +1,167 @@
-/* line 22, ../sass/style.scss */
+/* line 24, ../sass/style.scss */
 html {
   color: #000;
   background: none;
   font-family: "Open Sans", sans-serif;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 30, ../sass/style.scss */
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
   margin: 0;
   padding: 0;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 35, ../sass/style.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 40, ../sass/style.scss */
 fieldset, img {
   border: 0;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 44, ../sass/style.scss */
 address, caption, cite, code, dfn, em, strong, th, var {
   font-style: normal;
   font-weight: normal;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 49, ../sass/style.scss */
 li {
   list-style: none;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 53, ../sass/style.scss */
 caption, th {
   text-align: left;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 57, ../sass/style.scss */
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   font-weight: normal;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 62, ../sass/style.scss */
 q:before, q:after {
   content: '';
 }
 
-/* line 22, ../sass/style.scss */
+/* line 66, ../sass/style.scss */
 abbr, acronym {
   border: 0;
   font-variant: normal;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 71, ../sass/style.scss */
 sup {
   vertical-align: text-top;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 75, ../sass/style.scss */
 sub {
   vertical-align: text-bottom;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 79, ../sass/style.scss */
 input, textarea, select {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 85, ../sass/style.scss */
 input, textarea, select {
   *font-size: 100%;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 89, ../sass/style.scss */
 legend {
   color: #000;
 }
 
-/* line 24, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 .clears {
   clear: both;
 }
 
-/* line 28, ../sass/style.scss */
+/* line 97, ../sass/style.scss */
 .fieldError {
   border: 1px solid #c12e2a;
 }
 
-/* line 31, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
+.header-container .navbar-header .logo {
+  max-width: 130px;
+  margin: 7px 0px;
+}
+
+/* line 110, ../sass/style.scss */
 .form-container-main {
   padding-top: 30px;
 }
-/* line 37, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 .form-container-main .table-con #table_answers .hidden_row {
   display: none;
+}
+
+/* line 127, ../sass/style.scss */
+.main-quiz-list .block {
+  position: relative;
+  margin: 20px 0px;
+  box-shadow: 0px 1px 6px #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 133, ../sass/style.scss */
+.main-quiz-list .block:hover {
+  box-shadow: 0px 2px 6px #000;
+}
+/* line 140, ../sass/style.scss */
+.main-quiz-list .block a {
+  color: #000;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 146, ../sass/style.scss */
+.main-quiz-list .block .inside {
+  padding: 30px 20px;
+  min-height: 100px;
+}
+/* line 149, ../sass/style.scss */
+.main-quiz-list .block .inside .date {
+  text-align: right;
+  font-size: 12px;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+/* line 157, ../sass/style.scss */
+.main-quiz-list .block .inside .title {
+  font-size: 20px;
+}
+/* line 162, ../sass/style.scss */
+.main-quiz-list .block .footer {
+  background: #00B4D0;
+  padding: 5px 10px;
+}
+/* line 165, ../sass/style.scss */
+.main-quiz-list .block .footer p {
+  color: #FFF;
+  font-size: 14px;
+}
+/* line 168, ../sass/style.scss */
+.main-quiz-list .block .footer p.expire {
+  float: left;
+}
+/* line 171, ../sass/style.scss */
+.main-quiz-list .block .footer p.voted {
+  float: right;
 }
