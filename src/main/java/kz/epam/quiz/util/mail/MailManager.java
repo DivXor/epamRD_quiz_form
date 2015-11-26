@@ -58,8 +58,8 @@ public class MailManager {
             addresses = addressesList.toArray(addresses);
 
             message.addRecipients(Message.RecipientType.TO, addresses);
-            message.setSubject(subject);
-            message.setText(messageBody);
+            message.setSubject(subject, "UTF-8");
+            message.setText(messageBody, "UTF-8");
 
             Transport.send(message);
 
