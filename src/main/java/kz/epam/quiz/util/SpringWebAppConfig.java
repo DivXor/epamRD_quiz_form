@@ -17,17 +17,19 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-//@EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan("kz.epam.quiz")
 @PropertySource("classpath:application.properties")
-public class SpringWebAppConfig {
+public class SpringWebAppConfig extends WebMvcConfigurerAdapter{
 
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
@@ -40,32 +42,6 @@ public class SpringWebAppConfig {
 
     @Autowired
     private Environment environment;
-
-//    @Bean
-//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-//        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-//        em.setDataSource(dataSource());
-//        em.setPackagesToScan(new String[] { "kz.epam.quiz.model.entity" });
-//
-//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//        em.setJpaVendorAdapter(vendorAdapter);
-//        em.setJpaProperties(hibernateProperties());
-//
-//        return em;
-//    }
-//
-//    @Bean
-//    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
-//        JpaTransactionManager transactionManager = new JpaTransactionManager();
-//        transactionManager.setEntityManagerFactory(emf);
-//
-//        return transactionManager;
-//    }
-//
-//    @Bean
-//    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
-//        return new PersistenceExceptionTranslationPostProcessor();
-//     }
 
     @Bean
     public DataSource dataSource() {
@@ -101,4 +77,30 @@ public class SpringWebAppConfig {
         txManager.setSessionFactory(s);
         return txManager;
     }
+
+    //    @Bean
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+//        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+//        em.setDataSource(dataSource());
+//        em.setPackagesToScan(new String[] { "kz.epam.quiz.model.entity" });
+//
+//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//        em.setJpaVendorAdapter(vendorAdapter);
+//        em.setJpaProperties(hibernateProperties());
+//
+//        return em;
+//    }
+//
+//    @Bean
+//    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
+//        JpaTransactionManager transactionManager = new JpaTransactionManager();
+//        transactionManager.setEntityManagerFactory(emf);
+//
+//        return transactionManager;
+//    }
+//
+//    @Bean
+//    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+//        return new PersistenceExceptionTranslationPostProcessor();
+//     }
 }
