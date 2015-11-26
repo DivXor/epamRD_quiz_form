@@ -1,5 +1,6 @@
-package kz.epam.quiz.model.dao.test;
+package kz.epam.quiz.model.dao.impl;
 
+import kz.epam.quiz.model.dao.GenericDao;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,12 +12,12 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 @Repository
-public abstract class AbstractDao<PK extends Serializable, T> {
+public abstract class GenericDaoImpl<PK extends Serializable, T> implements GenericDao<PK, T> {
 
     private final Class<T> persistentClass;
 
     @SuppressWarnings("unchecked")
-    public AbstractDao() {
+    public GenericDaoImpl() {
         this.persistentClass = (Class<T>) (
                 (ParameterizedType) this.getClass().
                         getGenericSuperclass()).getActualTypeArguments()[1];
@@ -28,7 +29,6 @@ public abstract class AbstractDao<PK extends Serializable, T> {
     protected Session getSession() {
         return sessionFactory.getCurrentSession();
     }
-
 
     public T getByKey(PK key) {
         return getSession().get(persistentClass, key);
