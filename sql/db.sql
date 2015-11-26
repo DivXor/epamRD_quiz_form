@@ -39,10 +39,10 @@ CREATE TABLE quizzes
 CREATE TABLE answers
 (
   id           INT PRIMARY KEY,
-  title        VARCHAR2(200)                                        NOT NULL,
-  type         VARCHAR2(20) CHECK (type IN ('one', 'many', 'text')) NOT NULL,
-  answer_order INT                                                  NOT NULL,
-  quiz_id      INT                                                  NOT NULL
+  title        VARCHAR2(200)                                NOT NULL,
+  type         VARCHAR2(20) CHECK (type IN ('one', 'many')) NOT NULL,
+  answer_order INT                                          NOT NULL,
+  quiz_id      INT                                          NOT NULL
 );
 
 CREATE TABLE history
