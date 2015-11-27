@@ -31,7 +31,6 @@ public class QuizServiceImplTest {
     @Test
     public void testGetByPK() throws Exception {
         Quiz quiz = quizService.getByKey(1);
-        System.out.println(quiz);
     }
 
     @Test
