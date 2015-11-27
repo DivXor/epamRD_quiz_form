@@ -7,19 +7,34 @@ import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
-public class MailManager {
+public final class MailManager {
 
-    private static final String host = "smtp.mail.ru";
-    private static final String username = "username";
-    private static final String password = "password";
+    private static final String propertiesFile = "mail.properties";
 
-    public void sendMail(MailOutMessage mail, Set<User> recepients) {
+    private MailManager () {}
 
+    public static void sendMail(MailOutMessage mail, Set<User> recepients) {
+
+        Properties prop = new Properties();
+
+        try {
+            ClassLoader loader = Thread.currentThread().getContextClassLoader();
+            InputStream inputStream = loader.getResourceAsStream(propertiesFile);
+            prop.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        final String host = prop.getProperty("mailmanager.host").trim();
+        final String username = prop.getProperty("mailmanager.username").trim();
+        final String password = prop.getProperty("mailmanager.password").trim();
 
         //mail information
         String subject = mail.getTitle();
@@ -52,7 +67,8 @@ public class MailManager {
         try{
             MimeMessage message = new MimeMessage(session);
 
-            message.setFrom(new InternetAddress(from));
+            //header "from" must match with sender
+            message.setFrom(new InternetAddress(username));
 
             InternetAddress[] addresses = new InternetAddress[addressesList.size()];
             addresses = addressesList.toArray(addresses);
