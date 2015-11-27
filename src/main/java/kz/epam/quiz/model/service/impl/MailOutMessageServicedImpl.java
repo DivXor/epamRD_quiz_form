@@ -5,5 +5,5 @@ import kz.epam.quiz.model.service.HistoryService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MailoutMessageServiceImpl extends GenericServiceImpl<Integer, History> implements HistoryService {
+public class MailOutMessageServicedImpl extends GenericServiceImpl<Integer, History> implements HistoryService {
 }
