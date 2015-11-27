@@ -10,10 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {SpringWebAppConfig.class})
@@ -25,7 +22,7 @@ public class UserDaoImplTest {
 
     @Test
     public void testGetUsersByAnswerId() throws Exception {
-        List<User> userList = new ArrayList<>();
+        List<User> userList;
         userList = userDao.getUsersByAnswerId(1);
         System.out.println(userList);
     }

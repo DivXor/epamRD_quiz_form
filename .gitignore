@@ -6,7 +6,7 @@
 .idea
 *.iml
 application.properties
-target
+target/
 out
 gen
-target/
+

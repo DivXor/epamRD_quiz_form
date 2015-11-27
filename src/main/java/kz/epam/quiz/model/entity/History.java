@@ -7,11 +7,11 @@ import java.util.Date;
 @Table(name = "history")
 public class History extends AbstractEntity {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "answer_id")
     private Answer answer;
 
