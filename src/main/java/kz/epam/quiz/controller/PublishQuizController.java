@@ -2,9 +2,6 @@ package kz.epam.quiz.controller;
 
 import kz.epam.quiz.controller.form.PublishAnswerForm;
 import kz.epam.quiz.controller.form.PublishQuizForm;
-import kz.epam.quiz.model.dao.test.AbstractDao;
-import kz.epam.quiz.model.dao.test.QuizService;
-import kz.epam.quiz.model.dao.test.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -44,7 +41,7 @@ public class PublishQuizController {
             return "publish";
         }
 
-        AbstractDao service = new UserService();
+        //AbstractDao service = new UserService();
         //service.persist();
         //quizService.persist();
 

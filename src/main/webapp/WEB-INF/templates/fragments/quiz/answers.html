@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+</head>
+<body>
+<div th:fragment="answers" class="panel panel-success" th:if="${answered != null}">
+    <div class="panel-heading">Answers:</div>
+    <div class="panel-body">
+        <div class="list-group">
+            <a href="/quiz/view/1/answer/1" class="list-group-item"><span class="badge">14</span>
+                ASP.NET говно</a>
+            <a href="/quiz/view/1/answer/1" class="list-group-item"><span class="badge">100</span> Java
+                норм</a>
+            <a href="/quiz/view/1/answer/1" class="list-group-item"><span class="badge">0</span> Оба
+                говно</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

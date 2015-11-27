@@ -18,7 +18,7 @@
     <div class="container form-container-main">
         <div class="row">
             <div class="col-xs-12">
-                <form action="/" method="post" th:object="${publishQuizForm}">
+                <form action="/quiz/publish" method="post" th:object="${publishQuizForm}">
 
                     <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
                         <p th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</p>

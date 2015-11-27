@@ -1,7 +1,17 @@
 package kz.epam.quiz.controller.form;
 
-/**
- * Created by admin on 11/24/2015.
- */
+import javax.validation.constraints.NotNull;
+import java.util.*;
+
 public class QuizForm {
+    @NotNull
+    private List<AnswerForm> answersList = new ArrayList<>();
+
+    public List<AnswerForm> getAnswersList() {
+        return answersList;
+    }
+
+    public void setAnswersList(List<AnswerForm> answersList) {
+        this.answersList = answersList;
+    }
 }

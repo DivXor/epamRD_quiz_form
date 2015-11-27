@@ -165,3 +165,8 @@ legend {
 .main-quiz-list .block .footer p.voted {
   float: right;
 }
+
+/* line 180, ../sass/style.scss */
+.navbar-default .navbar-nav > li > a {
+  cursor: pointer;
+}
