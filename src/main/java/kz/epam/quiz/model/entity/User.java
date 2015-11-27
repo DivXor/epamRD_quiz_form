@@ -73,6 +73,14 @@ public class User extends AbstractEntity {
         this.answeredQuizzes = anseredQuizzes;
     }
 
+    public Set<MailOutMessage> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Set<MailOutMessage> messages) {
+        this.messages = messages;
+    }
+
     @Override
     public String toString() {
         return "User{" +
