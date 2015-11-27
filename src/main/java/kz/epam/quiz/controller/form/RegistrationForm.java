@@ -1,22 +1,26 @@
 package kz.epam.quiz.controller.form;
 
+import kz.epam.quiz.controller.form.validation.FieldMatch;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Size;
 
+@FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match")
 public class RegistrationForm {
-    @NotEmpty
+    @NotEmpty(message = "Email cannot be empty")
     @Email(message = "Please enter valid email")
     @Size(max = 200)
     private String email;
-    @NotEmpty
+    @NotEmpty(message = "Password field cannot be empty")
     @Size(max = 100)
     private String password;
-    @NotEmpty
+    @NotEmpty(message = "Password confirm field cannot be empty")
+    private String confirmPassword;
+    @NotEmpty(message = "First name cannot be empty")
     @Size(max = 100)
     private String firstName;
-    @NotEmpty
+    @NotEmpty(message = "Last name cannot be empty")
     @Size(max = 100)
     private String lastName;
 
@@ -36,12 +40,12 @@ public class RegistrationForm {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public String getLastName() {
@@ -50,5 +54,13 @@ public class RegistrationForm {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }
