@@ -1,6 +1,6 @@
 package kz.epam.quiz.util.mail;
 
-import kz.epam.quiz.model.entity.MailOutMessager;
+import kz.epam.quiz.model.entity.MailOutMessage;
 import kz.epam.quiz.model.entity.User;
 
 import javax.mail.*;
@@ -18,7 +18,7 @@ public class MailManager {
     private static final String username = "username";
     private static final String password = "password";
 
-    public void sendMail(MailOutMessager mail, Set<User> recepients) {
+    public void sendMail(MailOutMessage mail, Set<User> recepients) {
 
 
         //mail information

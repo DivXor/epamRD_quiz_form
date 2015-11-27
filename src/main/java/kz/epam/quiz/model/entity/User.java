@@ -23,7 +23,7 @@ public class User extends AbstractEntity {
     private Set<Quiz> answeredQuizzes;
 
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<MailOutMessager> messages;
+    private Set<MailOutMessage> messages;
 
     public String getEmail() {
         return email;
