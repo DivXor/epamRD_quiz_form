@@ -5,6 +5,8 @@
 # IntelliJ project files
 .idea
 *.iml
+application.properties
+target
 out
 gen
 target/
