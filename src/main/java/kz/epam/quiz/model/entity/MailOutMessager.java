@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user_messages")
-public class MailOutMessage extends AbstractEntity {
+public class MailOutMessager extends AbstractEntity {
     @Column
     private String title;
     @Column
@@ -42,7 +42,7 @@ public class MailOutMessage extends AbstractEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MailOutMessage that = (MailOutMessage) o;
+        MailOutMessager that = (MailOutMessager) o;
 
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (content != null ? !content.equals(that.content) : that.content != null) return false;
