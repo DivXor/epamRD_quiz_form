@@ -1,6 +1,7 @@
-package kz.epam.quiz.model.service;
+package kz.epam.quiz.model.service.impl;
 
 import kz.epam.quiz.model.entity.User;
+import kz.epam.quiz.model.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service

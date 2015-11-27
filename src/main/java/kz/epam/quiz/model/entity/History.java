@@ -7,13 +7,17 @@ import java.util.Date;
 @Table(name = "history")
 public class History extends AbstractEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "answer_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "answer_id")
     private Answer answer;
+
+    @ManyToOne
+    @JoinColumn(name = "quiz_id")
+    private Quiz quiz;
 
     @Column(name = "answer_time", nullable = false, updatable = false,
             insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -53,6 +57,7 @@ public class History extends AbstractEntity {
 
         if (user != null ? !user.equals(history.user) : history.user != null) return false;
         if (answer != null ? !answer.equals(history.answer) : history.answer != null) return false;
+        if (quiz != null ? !quiz.equals(history.quiz) : history.quiz != null) return false;
         return !(answerTime != null ? !answerTime.equals(history.answerTime) : history.answerTime != null);
 
     }
@@ -61,6 +66,7 @@ public class History extends AbstractEntity {
     public int hashCode() {
         int result = user != null ? user.hashCode() : 0;
         result = 31 * result + (answer != null ? answer.hashCode() : 0);
+        result = 31 * result + (quiz != null ? quiz.hashCode() : 0);
         result = 31 * result + (answerTime != null ? answerTime.hashCode() : 0);
         return result;
     }

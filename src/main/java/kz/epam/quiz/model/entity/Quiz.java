@@ -1,11 +1,7 @@
 package kz.epam.quiz.model.entity;
 
-import com.sun.istack.internal.Nullable;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,13 +28,21 @@ public class Quiz extends AbstractEntity {
     @Column(name = "status")
     private boolean status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
+    private User author;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "quiz_id", nullable = false)
     private Set<Answer> answers;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "history",
+            joinColumns = {@JoinColumn(name = "quiz_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")}
+    )
+    private Set<User> answeredUsers;
 
     public String getTitle() {
         return title;
@@ -80,14 +84,6 @@ public class Quiz extends AbstractEntity {
         this.status = status;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Set<Answer> getAnswers() {
         return answers;
     }
@@ -104,6 +100,37 @@ public class Quiz extends AbstractEntity {
         this.anonymous = anonymous;
     }
 
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Set<User> getAnsweredUsers() {
+        return answeredUsers;
+    }
+
+    public void setAnsweredUsers(Set<User> answeredUsers) {
+        this.answeredUsers = answeredUsers;
+    }
+
+    @Override
+    public String toString() {
+        return "Quiz{" +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", creationTime=" + creationTime +
+                ", expirationTime=" + expirationTime +
+                ", anonymous=" + anonymous +
+                ", status=" + status +
+                ", author=" + author +
+                ", answers=" + answers +
+                ", answeredUsers=" + answeredUsers +
+                "} " + super.toString();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -118,8 +145,9 @@ public class Quiz extends AbstractEntity {
         if (creationTime != null ? !creationTime.equals(quiz.creationTime) : quiz.creationTime != null) return false;
         if (expirationTime != null ? !expirationTime.equals(quiz.expirationTime) : quiz.expirationTime != null)
             return false;
-        if (user != null ? !user.equals(quiz.user) : quiz.user != null) return false;
-        return !(answers != null ? !answers.equals(quiz.answers) : quiz.answers != null);
+        if (author != null ? !author.equals(quiz.author) : quiz.author != null) return false;
+        if (answers != null ? !answers.equals(quiz.answers) : quiz.answers != null) return false;
+        return !(answeredUsers != null ? !answeredUsers.equals(quiz.answeredUsers) : quiz.answeredUsers != null);
 
     }
 
@@ -131,8 +159,9 @@ public class Quiz extends AbstractEntity {
         result = 31 * result + (expirationTime != null ? expirationTime.hashCode() : 0);
         result = 31 * result + (anonymous ? 1 : 0);
         result = 31 * result + (status ? 1 : 0);
-        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + (answers != null ? answers.hashCode() : 0);
+        result = 31 * result + (answeredUsers != null ? answeredUsers.hashCode() : 0);
         return result;
     }
 }

@@ -1,6 +1,7 @@
-package kz.epam.quiz.model.service;
+package kz.epam.quiz.model.service.impl;
 
 import kz.epam.quiz.model.dao.GenericDao;
+import kz.epam.quiz.model.service.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

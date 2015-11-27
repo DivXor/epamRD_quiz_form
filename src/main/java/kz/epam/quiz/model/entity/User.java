@@ -1,11 +1,11 @@
 package kz.epam.quiz.model.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "USERS")
 public class User extends AbstractEntity {
-
     @Column
     private String email;
     @Column
@@ -18,6 +18,12 @@ public class User extends AbstractEntity {
     @Column(name = "role_id")
     @Enumerated(EnumType.ORDINAL)
     private UserRole role;
+
+    @ManyToMany(mappedBy = "answeredUsers", fetch = FetchType.LAZY)
+    private Set<Quiz> answeredQuizzes;
+
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<MailOutMessage> messages;
 
     public String getEmail() {
         return email;
@@ -59,11 +65,23 @@ public class User extends AbstractEntity {
         this.role = role;
     }
 
+    public Set<Quiz> getAnsweredQuizzes() {
+        return answeredQuizzes;
+    }
+
+    public void setAnsweredQuizzes(Set<Quiz> anseredQuizzes) {
+        this.answeredQuizzes = anseredQuizzes;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", role=" + role +
+                ", messages=" + messages +
                 "} " + super.toString();
     }
 
