@@ -3,6 +3,7 @@ package kz.epam.quiz.model.service;
 import kz.epam.quiz.model.entity.User;
 import kz.epam.quiz.model.entity.UserRole;
 import kz.epam.quiz.util.SpringWebAppConfig;
+import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,4 +41,9 @@ public class UserServiceImplTest {
     }
 
 
+    @Test
+    public void testGetListByAnswerId() throws Exception {
+        List<User> users = userService.getListByAnswerId(1);
+        assertNotNull(users);
+    }
 }

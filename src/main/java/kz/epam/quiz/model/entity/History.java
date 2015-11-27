@@ -48,6 +48,14 @@ public class History extends AbstractEntity {
         this.answerTime = answerTime;
     }
 
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
