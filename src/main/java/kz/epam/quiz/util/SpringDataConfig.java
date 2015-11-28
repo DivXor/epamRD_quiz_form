@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -17,8 +18,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.persistence.EntityManagerFactory;
@@ -29,7 +28,8 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("kz.epam.quiz")
 @PropertySource("classpath:application.properties")
-public class SpringWebAppConfig extends WebMvcConfigurerAdapter{
+@EnableJpaRepositories(basePackages = {"kz.epam.quiz.model"})
+public class SpringDataConfig extends WebMvcConfigurerAdapter{
 
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
@@ -53,6 +53,18 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter{
         return dataSource;
     }
 
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan("kz.epam.quiz.model.entity");
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+
+        em.setJpaProperties(hibernateProperties());
+        return em;
+    }
+
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put(PROPERTY_NAME_HIBERNATE_DIALECT, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
@@ -63,44 +75,11 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter{
     }
 
     @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "kz.epam.quiz.model.entity" });
-        sessionFactory.setHibernateProperties(hibernateProperties());
-        return sessionFactory;
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
+
+        return transactionManager;
     }
 
-    @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory s) {
-        HibernateTransactionManager txManager = new HibernateTransactionManager();
-        txManager.setSessionFactory(s);
-        return txManager;
-    }
-
-    //    @Bean
-//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-//        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-//        em.setDataSource(dataSource());
-//        em.setPackagesToScan(new String[] { "kz.epam.quiz.model.entity" });
-//
-//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//        em.setJpaVendorAdapter(vendorAdapter);
-//        em.setJpaProperties(hibernateProperties());
-//
-//        return em;
-//    }
-//
-//    @Bean
-//    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
-//        JpaTransactionManager transactionManager = new JpaTransactionManager();
-//        transactionManager.setEntityManagerFactory(emf);
-//
-//        return transactionManager;
-//    }
-//
-//    @Bean
-//    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
-//        return new PersistenceExceptionTranslationPostProcessor();
-//     }
 }

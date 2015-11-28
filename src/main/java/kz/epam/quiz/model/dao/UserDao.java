@@ -1,9 +1,9 @@
 package kz.epam.quiz.model.dao;
 
 import kz.epam.quiz.model.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-public interface UserDao extends GenericDao<Integer, User> {
-    List<User> getUsersByAnswerId(int id);
+@Repository
+public interface UserDao extends JpaRepository<User, Integer> {
 }
