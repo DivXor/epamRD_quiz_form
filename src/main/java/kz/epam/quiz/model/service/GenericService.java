@@ -10,6 +10,4 @@ public interface GenericService<T, PK> {
     void save(T entity);
 
     void delete(T entity);
-
-    void update(T entity);
 }
