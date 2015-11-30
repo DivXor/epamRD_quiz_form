@@ -1,7 +1,7 @@
 package kz.epam.quiz.controller;
 
-import kz.epam.quiz.controller.form.PublishAnswerForm;
-import kz.epam.quiz.controller.form.PublishQuizForm;
+import kz.epam.quiz.controller.dto.PublishAnswerDTO;
+import kz.epam.quiz.controller.dto.PublishQuizDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -26,13 +26,13 @@ public class PublishQuizController {
     @RequestMapping(value = "/quiz/publish", method = RequestMethod.GET)
     public String viewPublishForm(Map<String, Object> model) {
         model.put("title", "Publish new quiz");
-        PublishQuizForm publishQuizForm = new PublishQuizForm();
-        model.put("publishQuizForm", publishQuizForm);
+        PublishQuizDTO publishQuizDTO = new PublishQuizDTO();
+        model.put("publishQuizDTO", publishQuizDTO);
         return "publish";
     }
 
     @RequestMapping(value = "/quiz/publish", method = RequestMethod.POST)
-    public String doPublishForm(@Valid @ModelAttribute("publishQuizForm") PublishQuizForm publishForm, BindingResult result,
+    public String doPublishForm(@Valid @ModelAttribute("publishQuizDTO") PublishQuizDTO publishForm, BindingResult result,
                                 Map<String, Object> model) {
 
         validateAnswers(publishForm.getAnswerForms(), result);
@@ -48,15 +48,15 @@ public class PublishQuizController {
         return "publish";
     }
 
-    private BindingResult validateAnswers(List<PublishAnswerForm> answerForms, BindingResult result) {
+    private BindingResult validateAnswers(List<PublishAnswerDTO> answerForms, BindingResult result) {
         if (answerForms.isEmpty())
             result.addError(new FieldError("Answer", "", "Answers cannot be empty"));
         Iterator iterator = answerForms.iterator();
         int index = 0;
         while (iterator.hasNext()) {
-            PublishAnswerForm publishAnswer = (PublishAnswerForm) iterator.next();
-            Set<ConstraintViolation<PublishAnswerForm>> validationList = validator.validate(publishAnswer);
-            for (ConstraintViolation<PublishAnswerForm> violation : validationList) {
+            PublishAnswerDTO publishAnswer = (PublishAnswerDTO) iterator.next();
+            Set<ConstraintViolation<PublishAnswerDTO>> validationList = validator.validate(publishAnswer);
+            for (ConstraintViolation<PublishAnswerDTO> violation : validationList) {
                 String path = violation.getPropertyPath().toString();
                 String message = violation.getMessage();
                 result.addError(new FieldError("Answer", "answerForms[" + index + "]" + "." + path, "Answer: " + message));

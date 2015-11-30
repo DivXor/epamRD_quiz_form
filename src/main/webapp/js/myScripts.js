@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 
     /**
-     * On saving the quiz form
+     * On saving the quiz dto
      */
     $("#save_quiz_form").click(function(){
         $('#table_answers .hidden_row').empty();
