@@ -1,4 +1,4 @@
-package kz.epam.quiz.util.mail;
+package kz.epam.quiz.model.service.mail;
 
 import kz.epam.quiz.model.entity.MailOutMessage;
 import kz.epam.quiz.model.entity.User;

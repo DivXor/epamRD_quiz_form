@@ -7,7 +7,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-       <context:component-scan base-package="kz.epam.quiz.util.mail" />
+       <context:component-scan base-package="kz.epam.quiz.model.service.mail" />
 
        <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
               <property name="locations">

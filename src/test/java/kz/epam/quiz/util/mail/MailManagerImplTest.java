@@ -2,6 +2,7 @@ package kz.epam.quiz.util.mail;
 
 import kz.epam.quiz.model.entity.MailOutMessage;
 import kz.epam.quiz.model.entity.User;
+import kz.epam.quiz.model.service.mail.MailManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
