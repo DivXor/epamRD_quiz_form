@@ -28,11 +28,19 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
 
     @Override
     public User findByEmail(String email) throws UserNotExistException {
-        return null;
+        User user = userDao.findByEmail(email);
+        if (user != null)
+            return user;
+        else
+            throw new UserNotExistException();
     }
 
     @Override
     public void createUser(User user) throws UserAlreadyExistException {
-
+        User dbUser = userDao.findByEmail(user.getEmail());
+        if (dbUser == null)
+            userDao.saveAndFlush(user);
+         else
+            throw new UserAlreadyExistException();
     }
 }
