@@ -5,10 +5,10 @@
     <title></title>
 </head>
 <body>
-<div th:fragment="quizForm" class="panel panel-primary form-container" th:if="${answered == null}">
+<div th:fragment="quizDTO" class="panel panel-primary form-container" th:if="${answered == null}">
     <div class="panel-heading">Choose answer:</div>
     <div class="panel-body">
-        <form th:object="${quizForm}" th:action="'/quiz/view/'+${quiz_id}" method="post">
+        <form th:object="${quizDTO}" th:action="'/quiz/view/'+${quiz_id}" method="post">
             <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
                 <p th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</p>
             </div>

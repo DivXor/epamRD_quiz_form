@@ -1,7 +1,7 @@
 package kz.epam.quiz.controller;
 
-import kz.epam.quiz.controller.form.AnswerForm;
-import kz.epam.quiz.controller.form.QuizForm;
+import kz.epam.quiz.controller.dto.AnswerDTO;
+import kz.epam.quiz.controller.dto.QuizDTO;
 import kz.epam.quiz.model.entity.User;
 import kz.epam.quiz.model.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,15 +30,15 @@ public class QuizController {
 
     @RequestMapping(value = "/quiz/view/{id}", method = RequestMethod.GET)
     public String viewQuiz(@PathVariable Integer id, Map<String, Object> model) {
-        model.put("quizForm", new QuizForm());
+        model.put("quizDTO", new QuizDTO());
         model.put("quiz_id", id);
         return "quiz";
     }
 
     @RequestMapping(value = "/quiz/view/{id}", method = RequestMethod.POST)
-    public String doQuiz(@PathVariable Integer id, @Valid @ModelAttribute("quizForm") QuizForm quizForm, BindingResult result, Map<String, Object> model) {
+    public String doQuiz(@PathVariable Integer id, @Valid @ModelAttribute("quizDTO") QuizDTO quizDTO, BindingResult result, Map<String, Object> model) {
         model.put("quiz_id", id);
-        validateAnswers(quizForm.getAnswersList(), result);
+        validateAnswers(quizDTO.getAnswersList(), result);
 
         if(!result.hasErrors()) {
             model.put("answered", "1");
@@ -55,18 +55,18 @@ public class QuizController {
         return "quiz";
     }
 
-    private BindingResult validateAnswers(List<AnswerForm> answerForms, BindingResult result) {
-        if (answerForms.isEmpty())
+    private BindingResult validateAnswers(List<AnswerDTO> answerDTOs, BindingResult result) {
+        if (answerDTOs.isEmpty())
             result.addError(new FieldError("Answer", "", "Answers cannot be empty"));
-        Iterator iterator = answerForms.iterator();
+        Iterator iterator = answerDTOs.iterator();
         int index = 0;
         while (iterator.hasNext()) {
-            AnswerForm answerForm = (AnswerForm) iterator.next();
-            Set<ConstraintViolation<AnswerForm>> validationList = validator.validate(answerForm);
-            for (ConstraintViolation<AnswerForm> violation : validationList) {
+            AnswerDTO answerDTO = (AnswerDTO) iterator.next();
+            Set<ConstraintViolation<AnswerDTO>> validationList = validator.validate(answerDTO);
+            for (ConstraintViolation<AnswerDTO> violation : validationList) {
                 String path = violation.getPropertyPath().toString();
                 String message = violation.getMessage();
-                result.addError(new FieldError("Answer", "answersList[" + index + "]" + "." + path, "Answer: " + message));
+                result.addError(new FieldError("Answer", "answerDTOs[" + index + "]" + "." + path, "Answer: " + message));
             }
             index++;
         }
