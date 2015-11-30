@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="USER_MESSAGES" directorySegmentName="seg_0" id="1A72ACFA-C3BE-024B-E3AE-250F3D88B514">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<schemaObject>3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6EB2986E-7ECC-D7B0-E6F8-3B5BE344D64C</segment>
+<tableSpace>FF7A2D4B-0467-8AC9-8737-C6358D7E3139</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TITLE" id="24D46B48-8E0A-CF0E-C555-FD173758F612">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="ACBF6753-CB0D-7356-C4D7-27F3564869D4">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AUTHOR_ID" id="B2862597-FB1A-53A3-83A1-460CB7379B0A">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CONTENT" id="BD55F9A6-74D5-06D7-3663-D27F06787D3F">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="MESSAGES_FK0" id="93AFC19A-123C-996F-1F9A-432D6E894111">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="USER_MESSAGES_PK" id="3D45EFC5-0969-592C-D160-A758FBC04091">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<schemaObject>3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6</schemaObject>
+<segment>49575062-18E8-D785-E6D5-CEC5FAF403B4</segment>
+<tableSpace>FF7A2D4B-0467-8AC9-8737-C6358D7E3139</tableSpace>
+<indexSegment>49575062-18E8-D785-E6D5-CEC5FAF403B4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

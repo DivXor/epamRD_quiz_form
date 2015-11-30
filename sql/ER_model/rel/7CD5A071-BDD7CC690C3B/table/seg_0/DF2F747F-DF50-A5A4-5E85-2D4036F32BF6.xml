@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DF2F747F-DF50-A5A4-5E85-2D4036F32BF6" name="user_to_quiz">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-30 09:09:52 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USERS_ID" id="9F39D666-34AD-7076-C6AF-2EB93FFFFF6C">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-30 09:11:17 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7BA3DE04-9B9A-4326-FFF4-A7568983679C" referredColumn="EDF2E244-F41D-2531-4EBA-0C588034494C"/>
+</associations>
+</Column>
+<Column name="QUIZZES_ID" id="DE9F9FAC-CDA8-6E48-2232-7C9F4F30C65C">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-30 09:11:24 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="570A010F-530A-A4BC-B177-30EBFD4909B2" referredColumn="645A68AD-EAE7-4B23-2093-5335374F3FE8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FBEBABB4-A3EA-66EA-88F5-544112656781" name="user_to_quiz_USERS_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-30 09:11:17 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F39D666-34AD-7076-C6AF-2EB93FFFFF6C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DC33E65A-D127-73BB-C09C-897FBB6B405F" name="user_to_quiz_QUIZZES_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-30 09:11:24 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE9F9FAC-CDA8-6E48-2232-7C9F4F30C65C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

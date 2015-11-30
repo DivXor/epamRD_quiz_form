@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="USERS" directorySegmentName="seg_0" id="5C31485E-B5B1-3C98-C8FD-11C798136554">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<schemaObject>3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6EB2986E-7ECC-D7B0-E6F8-3B5BE344D64C</segment>
+<tableSpace>FF7A2D4B-0467-8AC9-8737-C6358D7E3139</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="EMAIL" id="0D138DD7-78D0-10D4-8753-A6EA105364E4">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ROLE_ID" id="12B8D296-37D9-D944-243D-A75DC8FCD28E">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FIRST_NAME" id="18F72902-062F-7D66-C084-4ADD6A473FB0">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LAST_NAME" id="31612C70-D07A-72AE-9A77-262A7454401A">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PASSWORD" id="961BF71C-BDFC-7610-E597-93499658D667">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="EDF2E244-F41D-2531-4EBA-0C588034494C">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="USERS_FK0" id="D82466F5-DB23-1ECA-66F2-AC3212286EBE">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="USERS_PK" id="99960DE8-605C-7E0C-7476-CC4A117F1B64">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<schemaObject>3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6</schemaObject>
+<segment>49575062-18E8-D785-E6D5-CEC5FAF403B4</segment>
+<tableSpace>FF7A2D4B-0467-8AC9-8737-C6358D7E3139</tableSpace>
+<indexSegment>49575062-18E8-D785-E6D5-CEC5FAF403B4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

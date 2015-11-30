@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A4FCCE60-1609-9D9A-4489-2FC9117D9C4F" schemaObject="3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6" name="HISTORY">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>QUIZ_ENGINE</sourceObjSchema>
+<sourceObjName>HISTORY</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:33 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="82074DA6-9C4F-8162-4FDD-9CA034D7B23E">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>HISTORY</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ANSWER_ID" id="B00CD9D5-585E-FBCE-50D9-87B12B534984">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>HISTORY</sourceObjSchema>
+<sourceObjName>ANSWER_ID</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7ED773C7-1EFD-BCAB-9F95-1D93D252427C" referredColumn="AFBA7938-EBAD-E85F-9AB9-469A0DFC8915"/>
+</associations>
+</Column>
+<Column name="USER_ID" id="E1D6DFF1-E4A6-EA91-8CEA-5A3842644F89">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>HISTORY</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="833B8DE3-9C32-737D-C41E-A3844DA2CDFD" referredColumn="EDF2E244-F41D-2531-4EBA-0C588034494C"/>
+</associations>
+</Column>
+<Column name="ANSWER_TIME" id="892567D4-F7AF-5A30-2469-DFB163D57DE0">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>HISTORY</sourceObjSchema>
+<sourceObjName>ANSWER_TIME</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="75DF75F7-4EB5-7CEE-8277-D47527C53DE3" schemaObject="3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6" name="HISTORY_PK">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>QUIZ_ENGINE</sourceObjSchema>
+<sourceObjName>SYS_C007384</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="82074DA6-9C4F-8162-4FDD-9CA034D7B23E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BDD64A50-F157-ACCB-195F-D09790D32C8C" name="HISTORY_FK0">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B00CD9D5-585E-FBCE-50D9-87B12B534984"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2FCAF1D8-4316-3C30-8094-0A06813075DF" name="HISTORY_FK1">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1D6DFF1-E4A6-EA91-8CEA-5A3842644F89"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

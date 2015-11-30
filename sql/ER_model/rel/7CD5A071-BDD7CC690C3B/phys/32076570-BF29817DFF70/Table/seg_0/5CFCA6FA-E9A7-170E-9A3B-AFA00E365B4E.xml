@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="QUIZZES" directorySegmentName="seg_0" id="5CFCA6FA-E9A7-170E-9A3B-AFA00E365B4E">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<schemaObject>3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6EB2986E-7ECC-D7B0-E6F8-3B5BE344D64C</segment>
+<tableSpace>FF7A2D4B-0467-8AC9-8737-C6358D7E3139</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="STATUS" id="32049DAD-74F9-2766-9F0F-2EC1DCEEA8C5">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="TITLE" id="35C3A1A6-1C88-6B50-F736-38BF3B797110">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ANONYMOUS" id="47A64E05-37A3-4ED3-17A8-09BF5DAC79B8">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="ID" id="645A68AD-EAE7-4B23-2093-5335374F3FE8">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATION_TIME" id="7BEF98CF-A8B4-1B09-3498-C4F1DADE3A2A">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="CONTENT" id="9A1CF9B1-C264-7677-76BA-221DBC53A04B">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EXPIRATION_TIME" id="A8350036-2FE1-9DCF-5E0A-DC4B48F884DB">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AUTHOR_ID" id="B38D9AD5-7D5A-26D8-ECEF-A733A4D3F149">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="QUIZZES_FK0" id="212E6ED5-C270-CCD1-E6BB-CB5593977EEF">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="QUIZZES_PK" id="D027E05C-F861-F26E-2B06-FAECAFB879A7">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<schemaObject>3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6</schemaObject>
+<segment>49575062-18E8-D785-E6D5-CEC5FAF403B4</segment>
+<tableSpace>FF7A2D4B-0467-8AC9-8737-C6358D7E3139</tableSpace>
+<indexSegment>49575062-18E8-D785-E6D5-CEC5FAF403B4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

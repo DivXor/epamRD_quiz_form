@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="700ACFCC-435E-3997-1978-91CC2C3DDA74" schemaObject="3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6" name="ANSWERS">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>QUIZ_ENGINE</sourceObjSchema>
+<sourceObjName>ANSWERS</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:33 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="AFBA7938-EBAD-E85F-9AB9-469A0DFC8915">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>ANSWERS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TITLE" id="72907535-600A-5653-712C-773CCAC30206">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>ANSWERS</sourceObjSchema>
+<sourceObjName>TITLE</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TYPE" id="15A961FA-8B86-9E25-A83D-35D50AEE8A84">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>ANSWERS</sourceObjSchema>
+<sourceObjName>TYPE</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<constraintName>SYS_C007379</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;many&apos;" description=""/>
+<valueDef value="&apos;one&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ANSWER_ORDER" id="91DAFA76-57E5-7A3C-235F-F6622DE71A9A">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>ANSWERS</sourceObjSchema>
+<sourceObjName>ANSWER_ORDER</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QUIZZES_ID" id="0C4B7A76-8046-B093-071A-CB64EECD5442">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-30 09:52:28 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E55AC069-975E-2263-932A-2473B510A274" referredColumn="645A68AD-EAE7-4B23-2093-5335374F3FE8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1A612733-9F27-A42D-C9C7-F314AFE3F83E" schemaObject="3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6" name="ANSWERS_PK">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>QUIZ_ENGINE</sourceObjSchema>
+<sourceObjName>SYS_C007380</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AFBA7938-EBAD-E85F-9AB9-469A0DFC8915"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C8E77B16-13EB-6A62-5A55-B1FE16D75A5E" name="ANSWERS_QUIZZES_FK">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-30 09:52:28 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0C4B7A76-8046-B093-071A-CB64EECD5442"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

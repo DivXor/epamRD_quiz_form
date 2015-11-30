@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2439A23A-9DC1-1D4E-A191-3C3C9C8D5F50" containerWithKeyObject="1A72ACFA-C3BE-024B-E3AE-250F3D88B514" localFKIndex="93AFC19A-123C-996F-1F9A-432D6E894111" name="MESSAGES_FK0">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>QUIZ_ENGINE</sourceObjSchema>
+<sourceObjName>MESSAGES_FK0</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5C31485E-B5B1-3C98-C8FD-11C798136554</referredTableID>
+<keyObject>99960DE8-605C-7E0C-7476-CC4A117F1B64</keyObject>
+<referredKeyID>99960DE8-605C-7E0C-7476-CC4A117F1B64</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface QuizDao extends JpaRepository<Quiz, Integer> {
 
-    @Query("SELECT q FROM Quiz q JOIN Answer a JOIN History h WHERE h.user.id = :id")
-    List<Quiz> findByAnsweredUsers(@Param("id") int quizId);
+//    @Query("")
+//    List<Quiz> findByAnsweredUsers(@Param("id") int quizId);
 }

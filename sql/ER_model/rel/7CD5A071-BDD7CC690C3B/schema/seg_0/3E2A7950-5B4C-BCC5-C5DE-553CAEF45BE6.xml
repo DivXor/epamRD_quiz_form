@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="QUIZ_ENGINE" directorySegmentName="seg_0" id="3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 04:53:36 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+</SchemaObject>

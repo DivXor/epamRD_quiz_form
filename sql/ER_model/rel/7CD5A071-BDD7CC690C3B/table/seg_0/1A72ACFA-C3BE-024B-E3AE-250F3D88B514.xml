@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1A72ACFA-C3BE-024B-E3AE-250F3D88B514" schemaObject="3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6" name="USER_MESSAGES">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>QUIZ_ENGINE</sourceObjSchema>
+<sourceObjName>USER_MESSAGES</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="ACBF6753-CB0D-7356-C4D7-27F3564869D4">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>USER_MESSAGES</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TITLE" id="24D46B48-8E0A-CF0E-C555-FD173758F612">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>USER_MESSAGES</sourceObjSchema>
+<sourceObjName>TITLE</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTENT" id="BD55F9A6-74D5-06D7-3663-D27F06787D3F">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>USER_MESSAGES</sourceObjSchema>
+<sourceObjName>CONTENT</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AUTHOR_ID" id="B2862597-FB1A-53A3-83A1-460CB7379B0A">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>USER_MESSAGES</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2439A23A-9DC1-1D4E-A191-3C3C9C8D5F50" referredColumn="EDF2E244-F41D-2531-4EBA-0C588034494C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3D45EFC5-0969-592C-D160-A758FBC04091" schemaObject="3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6" name="USER_MESSAGES_PK">
+<sourceConnName>quiz</sourceConnName>
+<sourceObjSchema>QUIZ_ENGINE</sourceObjSchema>
+<sourceObjName>SYS_C007368</sourceObjName>
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ACBF6753-CB0D-7356-C4D7-27F3564869D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="93AFC19A-123C-996F-1F9A-432D6E894111" name="MESSAGES_FK0">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2862597-FB1A-53A3-83A1-460CB7379B0A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

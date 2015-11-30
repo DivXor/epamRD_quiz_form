@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="USER_ROLES" directorySegmentName="seg_0" id="9C91E7E0-4C21-098D-26A6-FC2546ADB645">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<schemaObject>3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>6EB2986E-7ECC-D7B0-E6F8-3B5BE344D64C</segment>
+<tableSpace>FF7A2D4B-0467-8AC9-8737-C6358D7E3139</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID" id="2D82AD46-BEA6-C930-F1F0-F194FD3D97F4">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ROLE_NAME" id="E338D5EA-6DE0-247E-933D-E6B33F7F2D62">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="USER_ROLES_PK" id="51E8238B-8809-A8D6-3786-6CCC2F4BC94F">
+<createdBy>Ilya_Doroshenko</createdBy>
+<createdTime>2015-11-26 07:49:34 UTC</createdTime>
+<ownerDesignName>ER_model</ownerDesignName>
+<schemaObject>3E2A7950-5B4C-BCC5-C5DE-553CAEF45BE6</schemaObject>
+<segment>49575062-18E8-D785-E6D5-CEC5FAF403B4</segment>
+<tableSpace>FF7A2D4B-0467-8AC9-8737-C6358D7E3139</tableSpace>
+<indexSegment>49575062-18E8-D785-E6D5-CEC5FAF403B4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
