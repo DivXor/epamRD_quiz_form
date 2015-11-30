@@ -1,4 +1,4 @@
-package kz.epam.quiz.model.service;
+package kz.epam.quiz.model.service.db;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package kz.epam.quiz.controller;
 
 import kz.epam.quiz.controller.dto.RegistrationDTO;
 import kz.epam.quiz.model.entity.User;
-import kz.epam.quiz.model.service.UserService;
+import kz.epam.quiz.model.service.db.UserService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -2,6 +2,7 @@ package kz.epam.quiz.model.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -34,7 +35,7 @@ public class Quiz extends AbstractEntity {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "quiz_id", nullable = false)
-    private Set<Answer> answers;
+    private Set<Answer> answers = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -89,6 +90,9 @@ public class Quiz extends AbstractEntity {
     }
 
     public void setAnswers(Set<Answer> answers) {
+//        for (Answer answer: answers) {
+//            answer.setQuiz(this);
+//        }
         this.answers = answers;
     }
 
@@ -114,6 +118,11 @@ public class Quiz extends AbstractEntity {
 
     public void setAnsweredUsers(Set<User> answeredUsers) {
         this.answeredUsers = answeredUsers;
+    }
+
+    public void addAnswer(Answer answer){
+        answer.setQuiz(this);
+        answers.add(answer);
     }
 
     @Override

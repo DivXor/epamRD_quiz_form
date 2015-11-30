@@ -1,8 +1,8 @@
-package kz.epam.quiz.model.service;
+package kz.epam.quiz.model.service.db;
 
 import kz.epam.quiz.model.entity.User;
-import kz.epam.quiz.model.service.exceptions.UserAlreadyExistException;
-import kz.epam.quiz.model.service.exceptions.UserNotExistException;
+import kz.epam.quiz.model.service.db.exceptions.UserAlreadyExistException;
+import kz.epam.quiz.model.service.db.exceptions.UserNotExistException;
 
 import java.util.List;
 

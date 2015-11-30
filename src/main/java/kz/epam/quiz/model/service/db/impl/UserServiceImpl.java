@@ -1,10 +1,10 @@
-package kz.epam.quiz.model.service.impl;
+package kz.epam.quiz.model.service.db.impl;
 
 import kz.epam.quiz.model.dao.UserDao;
 import kz.epam.quiz.model.entity.User;
-import kz.epam.quiz.model.service.UserService;
-import kz.epam.quiz.model.service.exceptions.UserAlreadyExistException;
-import kz.epam.quiz.model.service.exceptions.UserNotExistException;
+import kz.epam.quiz.model.service.db.UserService;
+import kz.epam.quiz.model.service.db.exceptions.UserAlreadyExistException;
+import kz.epam.quiz.model.service.db.exceptions.UserNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +37,7 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
 
     @Override
     public void createUser(User user) throws UserAlreadyExistException {
-        User dbUser = userDao.findByEmail(user.getEmail());
-        if (dbUser == null)
+        if (!userDao.isExistsByEmail(user.getEmail()))
             userDao.saveAndFlush(user);
          else
             throw new UserAlreadyExistException();

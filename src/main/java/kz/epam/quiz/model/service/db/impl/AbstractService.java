@@ -1,6 +1,6 @@
-package kz.epam.quiz.model.service.impl;
+package kz.epam.quiz.model.service.db.impl;
 
-import kz.epam.quiz.model.service.GenericService;
+import kz.epam.quiz.model.service.db.GenericService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

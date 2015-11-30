@@ -34,8 +34,8 @@ public class UserDaoTest {
 
     @Test
     public void testIsExistsByEmail() throws Exception {
-        boolean isTrue = userDao.existsByEmail("test1@example.com");
-        boolean isFalse = userDao.existsByEmail("tes@example.com");
+        boolean isTrue = userDao.isExistsByEmail("test1@example.com");
+        boolean isFalse = userDao.isExistsByEmail("tes@example.com");
         assertTrue(isTrue);
         assertFalse(isFalse);
     }

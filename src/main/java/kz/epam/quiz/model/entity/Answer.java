@@ -15,6 +15,10 @@ public class Answer extends AbstractEntity {
     @Column(name = "answer_order")
     private int answerOrder;
 
+    @ManyToOne
+    @JoinColumn(name = "quiz_id", insertable = false, updatable = false)
+    private Quiz quiz;
+
     public String getTitle() {
         return title;
     }
@@ -46,6 +50,14 @@ public class Answer extends AbstractEntity {
                 ", type='" + type + '\'' +
                 ", answerOrder=" + answerOrder +
                 "} " + super.toString();
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 
     @Override

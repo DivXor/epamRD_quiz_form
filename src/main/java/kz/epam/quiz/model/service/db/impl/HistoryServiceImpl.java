@@ -1,9 +1,8 @@
-package kz.epam.quiz.model.service.impl;
+package kz.epam.quiz.model.service.db.impl;
 
 import kz.epam.quiz.model.dao.HistoryDao;
-import kz.epam.quiz.model.dao.QuizDao;
 import kz.epam.quiz.model.entity.History;
-import kz.epam.quiz.model.service.HistoryService;
+import kz.epam.quiz.model.service.db.HistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
