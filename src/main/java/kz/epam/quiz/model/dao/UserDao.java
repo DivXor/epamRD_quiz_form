@@ -13,4 +13,9 @@ public interface UserDao extends JpaRepository<User, Integer> {
 
     @Query("SELECT h.user FROM History h WHERE h.answer.id = :id")
     List<User> findUsersByAnswerId(@Param("id") int id);
+
+    User findByEmail(String email);
+
+    @Query("SELECT CASE WHEN COUNT(u) > 0 THEN true ELSE false END FROM User u WHERE u.email = :email")
+    boolean existsByEmail(@Param("email") String email);
 }
