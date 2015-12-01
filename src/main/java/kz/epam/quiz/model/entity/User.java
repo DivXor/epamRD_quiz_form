@@ -19,11 +19,15 @@ public class User extends AbstractEntity {
     @Enumerated(EnumType.ORDINAL)
     private UserRole role;
 
-    @ManyToMany(mappedBy = "answeredUsers", fetch = FetchType.LAZY)
-    private Set<Quiz> answeredQuizzes;
-
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<MailOutMessage> messages;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST})
+    @JoinTable(
+            name = "history",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "answer_id", referencedColumnName = "id")})
+    private Set<Answer> userAnswers;
 
     public String getEmail() {
         return email;
@@ -65,14 +69,6 @@ public class User extends AbstractEntity {
         this.role = role;
     }
 
-    public Set<Quiz> getAnsweredQuizzes() {
-        return answeredQuizzes;
-    }
-
-    public void setAnsweredQuizzes(Set<Quiz> anseredQuizzes) {
-        this.answeredQuizzes = anseredQuizzes;
-    }
-
     public Set<MailOutMessage> getMessages() {
         return messages;
     }
@@ -81,16 +77,23 @@ public class User extends AbstractEntity {
         this.messages = messages;
     }
 
+    public Set<Answer> getUserAnswers() {
+        return userAnswers;
+    }
+
+    public void setUserAnswers(Set<Answer> userAnswers) {
+        this.userAnswers = userAnswers;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "email='" + email + '\'' +
+                "role=" + role +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", role=" + role +
-                ", messages=" + messages +
-                "} " + super.toString();
+                '}';
     }
 
     @Override
@@ -104,7 +107,8 @@ public class User extends AbstractEntity {
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
         if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
-        return role == user.role;
+        if (role != user.role) return false;
+        return !(messages != null ? !messages.equals(user.messages) : user.messages != null);
 
     }
 
@@ -115,6 +119,8 @@ public class User extends AbstractEntity {
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + (messages != null ? messages.hashCode() : 0);
         return result;
     }
+
 }

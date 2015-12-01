@@ -1,7 +1,7 @@
 package kz.epam.quiz.model.dao;
 
 import kz.epam.quiz.model.entity.User;
-import kz.epam.quiz.util.SpringDataConfig;
+import kz.epam.quiz.config.SpringDataConfig;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;

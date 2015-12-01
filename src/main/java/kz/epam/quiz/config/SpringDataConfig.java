@@ -1,4 +1,4 @@
-package kz.epam.quiz.util;
+package kz.epam.quiz.config;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

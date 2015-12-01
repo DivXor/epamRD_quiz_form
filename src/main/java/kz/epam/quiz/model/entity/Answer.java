@@ -1,6 +1,7 @@
 package kz.epam.quiz.model.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "answers")
@@ -15,9 +16,12 @@ public class Answer extends AbstractEntity {
     @Column(name = "answer_order")
     private int answerOrder;
 
-    @ManyToOne
-    @JoinColumn(name = "quiz_id", insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "quizzes_id", insertable = false, updatable = false, nullable = false)
     private Quiz quiz;
+
+    @ManyToMany(mappedBy = "userAnswers", fetch = FetchType.LAZY)
+    private Set<User> answeredUsers;
 
     public String getTitle() {
         return title;
@@ -43,21 +47,29 @@ public class Answer extends AbstractEntity {
         this.answerOrder = answerOrder;
     }
 
-    @Override
-    public String toString() {
-        return "Answer{" +
-                "title='" + title + '\'' +
-                ", type='" + type + '\'' +
-                ", answerOrder=" + answerOrder +
-                "} " + super.toString();
-    }
-
     public Quiz getQuiz() {
         return quiz;
     }
 
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
+    }
+
+    public Set<User> getAnsweredUsers() {
+        return answeredUsers;
+    }
+
+    public void setAnsweredUsers(Set<User> answeredUsers) {
+        this.answeredUsers = answeredUsers;
+    }
+
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "answerOrder=" + answerOrder +
+                ", title='" + title + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 
     @Override
@@ -69,7 +81,8 @@ public class Answer extends AbstractEntity {
 
         if (answerOrder != answer.answerOrder) return false;
         if (title != null ? !title.equals(answer.title) : answer.title != null) return false;
-        return !(type != null ? !type.equals(answer.type) : answer.type != null);
+        if (type != null ? !type.equals(answer.type) : answer.type != null) return false;
+        return !(quiz != null ? !quiz.equals(answer.quiz) : answer.quiz != null);
 
     }
 
@@ -78,6 +91,9 @@ public class Answer extends AbstractEntity {
         int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + answerOrder;
+        result = 31 * result + (quiz != null ? quiz.hashCode() : 0);
         return result;
     }
+
+
 }

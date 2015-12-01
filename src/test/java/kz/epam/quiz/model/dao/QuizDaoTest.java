@@ -3,8 +3,7 @@ package kz.epam.quiz.model.dao;
 import kz.epam.quiz.model.entity.Answer;
 import kz.epam.quiz.model.entity.Quiz;
 import kz.epam.quiz.model.entity.User;
-import kz.epam.quiz.util.SpringDataConfig;
-import org.junit.Ignore;
+import kz.epam.quiz.config.SpringDataConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import static org.junit.Assert.*;
+import java.util.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {SpringDataConfig.class})
@@ -60,9 +54,10 @@ public class QuizDaoTest {
         quizDao.saveAndFlush(quiz);
     }
 
-    @Ignore
     @Test
     public void testFindByAnsweredUsers() throws Exception {
-
+        List<Quiz> quizs;
+        quizs = quizDao.findByAnsweredUsers(0);
+        System.out.println(quizs);
     }
 }
