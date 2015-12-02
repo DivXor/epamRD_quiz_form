@@ -1,5 +1,7 @@
 package kz.epam.quiz.util.mail;
 
+import kz.epam.quiz.config.MailConfig;
+import kz.epam.quiz.config.SpringDataConfig;
 import kz.epam.quiz.model.entity.MailOutMessage;
 import kz.epam.quiz.model.entity.User;
 import kz.epam.quiz.model.service.mail.MailManager;
@@ -13,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring-mail.xml")
+@ContextConfiguration(classes = {MailConfig.class})
 public class MailManagerImplTest {
 
     @Autowired
